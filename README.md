@@ -2,7 +2,7 @@
 
 API em TypeScript (Fastify + Zod + Prisma/PostgreSQL) que recebe webhooks de venda por `POST` e devolve um relatório por `GET`.
 
-**URL pública:** `https://SEU-APP.onrender.com`
+**URL pública:** `https://desafio-twr-frvr.onrender.com`
 
 ## Estrutura
 
@@ -17,7 +17,7 @@ src/
 prisma/schema.prisma
 ```
 
-- **routes**: define o endpoint e hooks (ex.: autenticação).
+- **routes**: define o endpoint.
 - **controller**: valida a entrada com Zod e traduz o resultado em HTTP.
 - **service**: regra de negócio e acesso ao banco (Prisma).
 
@@ -26,7 +26,7 @@ prisma/schema.prisma
 ### POST — registrar venda
 
 ```bash
-curl -X POST https://SEU-APP.onrender.com/postbacks \
+curl -X POST https://desafio-twr-frvr.onrender.com/postbacks \
   -H "Content-Type: application/json" \
   -d '{
     "platform": "hotmart",
@@ -48,7 +48,7 @@ Respostas: `201 {"result":"created"}`, `200 {"result":"updated"}`, `200 {"result
 ### GET — relatório
 
 ```bash
-curl "https://SEU-APP.onrender.com/reports/sales?from=2026-10-01&to=2026-10-31&platform=hotmart"
+curl "https://desafio-twr-frvr.onrender.com/reports/sales?from=2026-10-01&to=2026-10-31&platform=hotmart"
 ```
 
 Filtros opcionais: `from`, `to` (sobre `occurred_at`), `platform`, `product_id`.
